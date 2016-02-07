@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BCBC96B0-8046-4089-A859-963E95646404}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Common</RootNamespace>
+    <AssemblyName>UnityExt</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;EXTERNAL,PARALLEL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;EXTERNAL,PARALLEL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;EXTERNAL,PARALLEL</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;EXTERNAL,PARALLEL</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\assets\core\scripts\debug\DebugUtil.cs">
+      <Link>Imported\Core\Scripts\Debug\DebugUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\core\scripts\event\library\conditions\RelationCondition.cs">
+      <Link>Imported\Core\Scripts\Event\Library\Conditions\RelationCondition.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\core\scripts\event\library\conditions\RuleCondition.cs">
+      <Link>Imported\Core\Scripts\Event\Library\Conditions\RuleCondition.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\core\scripts\event\library\conditions\StateCondition.cs">
+      <Link>Imported\Core\Scripts\Event\Library\Conditions\StateCondition.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\core\scripts\event\library\EventDescriptor.cs">
+      <Link>Imported\Core\Scripts\Event\Library\EventDescriptor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\core\scripts\event\library\EventPopulation.cs">
+      <Link>Imported\Core\Scripts\Event\Library\EventPopulation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\core\scripts\event\library\EventPopulator.cs">
+      <Link>Imported\Core\Scripts\Event\Library\EventPopulator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\core\scripts\smartobject\CompareById.cs">
+      <Link>Imported\Core\Scripts\SmartObject\CompareById.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\core\scripts\smartobject\CompareByReference.cs">
+      <Link>Imported\Core\Scripts\SmartObject\CompareByReference.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\core\scripts\smartobject\interfaces\IHasState.cs">
+      <Link>Imported\Core\Scripts\SmartObject\Interfaces\IHasState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\core\scripts\smartobject\interfaces\IState.cs">
+      <Link>Imported\Core\Scripts\SmartObject\Interfaces\IState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\core\scripts\smartobject\prototype\EditablePrototype.cs">
+      <Link>Imported\Core\Scripts\SmartObject\Prototype\EditablePrototype.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\core\scripts\smartobject\prototype\ReadOnlyPrototype.cs">
+      <Link>Imported\Core\Scripts\SmartObject\Prototype\ReadOnlyPrototype.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\core\scripts\smartobject\state\EditableState.cs">
+      <Link>Imported\Core\Scripts\SmartObject\State\EditableState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\core\scripts\smartobject\state\ReadOnlyState.cs">
+      <Link>Imported\Core\Scripts\SmartObject\State\ReadOnlyState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\core\scripts\smartobject\state\rules\RuleDefs.cs">
+      <Link>Imported\Core\Scripts\SmartObject\State\Rules\RuleDefs.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\core\scripts\smartobject\state\rules\Rules.cs">
+      <Link>Imported\Core\Scripts\SmartObject\State\Rules\Rules.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\core\scripts\smartobject\state\StateDefs.cs">
+      <Link>Imported\Core\Scripts\SmartObject\State\StateDefs.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\core\scripts\smartobject\state\util\ChangeSet.cs">
+      <Link>Imported\Core\Scripts\SmartObject\State\Util\ChangeSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\core\scripts\smartobject\state\util\Filter.cs">
+      <Link>Imported\Core\Scripts\SmartObject\State\Util\Filter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\core\scripts\smartobject\state\util\StateComparer.cs">
+      <Link>Imported\Core\Scripts\SmartObject\State\Util\StateComparer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\core\scripts\util\DictionaryUtils.cs">
+      <Link>Imported\Core\Scripts\Util\DictionaryUtils.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\core\scripts\util\IEnumerableExtensions.cs">
+      <Link>Imported\Core\Scripts\Util\IEnumerableExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\exploration\scripts\graph\GraphUtil.cs">
+      <Link>Imported\Exploration\Scripts\Graph\GraphUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\exploration\scripts\graph\IEdge.cs">
+      <Link>Imported\Exploration\Scripts\Graph\IEdge.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\exploration\scripts\graph\INode.cs">
+      <Link>Imported\Exploration\Scripts\Graph\INode.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\exploration\scripts\networking\Protocol.cs">
+      <Link>Imported\Exploration\Scripts\Networking\Protocol.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\exploration\scripts\networking\MessageHandler.cs">
+      <Link>Imported\Exploration\Scripts\Networking\MessageHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\exploration\scripts\networking\NetworkManager.cs">
+      <Link>Imported\Exploration\Scripts\Networking\NetworkManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\exploration\scripts\serialization\DataSerializer.cs">
+      <Link>Imported\Exploration\Scripts\Serialization\DataSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\exploration\scripts\serialization\DataIO.cs">
+      <Link>Imported\Exploration\Scripts\Serialization\DataIO.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\exploration\scripts\serialization\GraphDecoder.cs">
+      <Link>Imported\Exploration\Scripts\Serialization\GraphDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\exploration\scripts\serialization\IEventLibrary.cs">
+      <Link>Imported\Exploration\Scripts\Serialization\IEventLibrary.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\exploration\scripts\serialization\graph\EdgeData.cs">
+      <Link>Imported\Exploration\Scripts\Serialization\Graph\EdgeData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\exploration\scripts\serialization\graph\NodeData.cs">
+      <Link>Imported\Exploration\Scripts\Serialization\Graph\NodeData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\exploration\scripts\serialization\graph\SpaceData.cs">
+      <Link>Imported\Exploration\Scripts\Serialization\Graph\SpaceData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\exploration\scripts\serialization\world\EventData.cs">
+      <Link>Imported\Exploration\Scripts\Serialization\World\EventData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\exploration\scripts\serialization\world\StateData.cs">
+      <Link>Imported\Exploration\Scripts\Serialization\World\StateData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\exploration\scripts\serialization\world\WorldData.cs">
+      <Link>Imported\Exploration\Scripts\Serialization\World\WorldData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\exploration\scripts\statespace\ExplorationEdge.cs">
+      <Link>Imported\Exploration\Scripts\StateSpace\ExplorationEdge.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\exploration\scripts\statespace\ExplorationNode.cs">
+      <Link>Imported\Exploration\Scripts\StateSpace\ExplorationNode.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\exploration\scripts\statespace\ExplorationSpace.cs">
+      <Link>Imported\Exploration\Scripts\StateSpace\ExplorationSpace.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\exploration\scripts\statespace\TransitionEvent.cs">
+      <Link>Imported\Exploration\Scripts\StateSpace\TransitionEvent.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\exploration\scripts\statespace\worldstate\CompareByMatrix.cs">
+      <Link>Imported\Exploration\Scripts\StateSpace\WorldState\CompareByMatrix.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\exploration\scripts\statespace\worldstate\WorldState.cs">
+      <Link>Imported\Exploration\Scripts\StateSpace\WorldState\WorldState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\libraries\yieldprolog\Atom.cs">
+      <Link>Imported\Libraries\YieldProlog\Atom.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\libraries\yieldprolog\Functor1.cs">
+      <Link>Imported\Libraries\YieldProlog\Functor1.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\libraries\yieldprolog\Functor2.cs">
+      <Link>Imported\Libraries\YieldProlog\Functor2.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\libraries\yieldprolog\Functor3.cs">
+      <Link>Imported\Libraries\YieldProlog\Functor3.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\libraries\yieldprolog\ListPair.cs">
+      <Link>Imported\Libraries\YieldProlog\ListPair.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\libraries\yieldprolog\PrologException.cs">
+      <Link>Imported\Libraries\YieldProlog\PrologException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\libraries\yieldprolog\Variable.cs">
+      <Link>Imported\Libraries\YieldProlog\Variable.cs</Link>
+    </Compile>
+    <Compile Include="..\..\assets\libraries\yieldprolog\YP.cs">
+      <Link>Imported\Libraries\YieldProlog\YP.cs</Link>
+    </Compile>
+    <Compile Include="ExternalIO.cs" />
+    <Compile Include="GoalSelection\Candidate.cs" />
+    <Compile Include="GoalSelection\GoalSelector.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PseudoEventLibrary.cs" />
+    <Compile Include="UnityEngine.Debug.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lidgren.Network\Lidgren.Network.csproj">
+      <Project>{49a9a9d3-7c09-4ece-bb04-d1e7163a09bd}</Project>
+      <Name>Lidgren.Network</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

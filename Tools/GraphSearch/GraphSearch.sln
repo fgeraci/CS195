@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GraphSearch", "GraphSearch\GraphSearch.vcxproj", "{7251D7E0-ACF6-461A-A5AB-29E71E5CE10A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphCSharp", "GraphCSharp\GraphCSharp.csproj", "{009EA4B3-8297-4F63-A85E-11E790F18EAD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7251D7E0-ACF6-461A-A5AB-29E71E5CE10A} = {7251D7E0-ACF6-461A-A5AB-29E71E5CE10A}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
+		Debug|x86 = Debug|x86
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7251D7E0-ACF6-461A-A5AB-29E71E5CE10A}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{7251D7E0-ACF6-461A-A5AB-29E71E5CE10A}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{7251D7E0-ACF6-461A-A5AB-29E71E5CE10A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7251D7E0-ACF6-461A-A5AB-29E71E5CE10A}.Debug|Win32.Build.0 = Debug|Win32
+		{7251D7E0-ACF6-461A-A5AB-29E71E5CE10A}.Debug|x86.ActiveCfg = Debug|Win32
+		{7251D7E0-ACF6-461A-A5AB-29E71E5CE10A}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{7251D7E0-ACF6-461A-A5AB-29E71E5CE10A}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{7251D7E0-ACF6-461A-A5AB-29E71E5CE10A}.Release|Win32.ActiveCfg = Release|Win32
+		{7251D7E0-ACF6-461A-A5AB-29E71E5CE10A}.Release|Win32.Build.0 = Release|Win32
+		{7251D7E0-ACF6-461A-A5AB-29E71E5CE10A}.Release|x86.ActiveCfg = Release|Win32
+		{009EA4B3-8297-4F63-A85E-11E790F18EAD}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{009EA4B3-8297-4F63-A85E-11E790F18EAD}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{009EA4B3-8297-4F63-A85E-11E790F18EAD}.Debug|Win32.ActiveCfg = Debug|x86
+		{009EA4B3-8297-4F63-A85E-11E790F18EAD}.Debug|x86.ActiveCfg = Debug|x86
+		{009EA4B3-8297-4F63-A85E-11E790F18EAD}.Debug|x86.Build.0 = Debug|x86
+		{009EA4B3-8297-4F63-A85E-11E790F18EAD}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{009EA4B3-8297-4F63-A85E-11E790F18EAD}.Release|Mixed Platforms.Build.0 = Release|x86
+		{009EA4B3-8297-4F63-A85E-11E790F18EAD}.Release|Win32.ActiveCfg = Release|x86
+		{009EA4B3-8297-4F63-A85E-11E790F18EAD}.Release|x86.ActiveCfg = Release|x86
+		{009EA4B3-8297-4F63-A85E-11E790F18EAD}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

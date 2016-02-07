@@ -1,0 +1,5 @@
+C:\Users\shoulsonal\Documents\projects-event-planning.html\devl\Unity\Core\YieldProlog\builddll\bin\Release\YieldPrologDLL.dll
+C:\Users\shoulsonal\Documents\projects-event-planning.html\devl\Unity\Core\YieldProlog\builddll\bin\Release\YieldPrologDLL.pdb
+C:\Users\shoulsonal\Documents\projects-event-planning.html\devl\Unity\Core\YieldProlog\builddll\obj\Release\ResolveAssemblyReference.cache
+C:\Users\shoulsonal\Documents\projects-event-planning.html\devl\Unity\Core\YieldProlog\builddll\obj\Release\YieldPrologDLL.dll
+C:\Users\shoulsonal\Documents\projects-event-planning.html\devl\Unity\Core\YieldProlog\builddll\obj\Release\YieldPrologDLL.pdb

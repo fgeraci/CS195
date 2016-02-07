@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{49A9A9D3-7C09-4ECE-BB04-D1E7163A09BD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Lidgren.Network</RootNamespace>
+    <AssemblyName>Lidgren.Network</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\Encryption\INetEncryption.cs">
+      <Link>Encryption\INetEncryption.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\Encryption\NetAESEncryption.cs">
+      <Link>Encryption\NetAESEncryption.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\Encryption\NetBlockEncryptionBase.cs">
+      <Link>Encryption\NetBlockEncryptionBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\Encryption\NetDESEncryption.cs">
+      <Link>Encryption\NetDESEncryption.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\Encryption\NetRC2Encryption.cs">
+      <Link>Encryption\NetRC2Encryption.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\Encryption\NetTripleDESEncryption.cs">
+      <Link>Encryption\NetTripleDESEncryption.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\Encryption\NetXorEncryption.cs">
+      <Link>Encryption\NetXorEncryption.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\Encryption\NetXteaEncryption.cs">
+      <Link>Encryption\NetXteaEncryption.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NamespaceDoc.cs">
+      <Link>NamespaceDoc.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetBigInteger.cs">
+      <Link>NetBigInteger.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetBitVector.cs">
+      <Link>NetBitVector.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetBitWriter.cs">
+      <Link>NetBitWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetClient.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetConnection.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetConnection.Handshake.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetConnection.Latency.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetConnection.MTU.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetConnectionStatistics.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetConnectionStatus.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetConstants.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetDeliveryMethod.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetException.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetFragmentationHelper.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetIncomingMessage.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetIncomingMessage.Peek.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetIncomingMessage.Read.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetIncomingMessage.Read.Reflection.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetIncomingMessage.Write.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetIncomingMessageType.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetMessageType.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetNatIntroduction.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetOutgoingMessage.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetOutgoingMessage.Write.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetOutgoingMessage.Write.Reflection.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetPeer.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetPeer.Discovery.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetPeer.Fragmentation.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetPeer.Internal.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetPeer.LatencySimulation.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetPeer.Logging.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetPeer.MessagePools.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetPeer.Send.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetPeerConfiguration.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetPeerStatistics.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetPeerStatus.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetQueue.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetRandom.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetReceiverChannelBase.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetReliableOrderedReceiver.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetReliableSenderChannel.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetReliableSequencedReceiver.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetReliableUnorderedReceiver.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetSenderChannelBase.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetSendResult.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetServer.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetSRP.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetStoredReliableMessage.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetTime.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetTuple.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetUnreliableSenderChannel.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetUnreliableSequencedReceiver.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetUnreliableUnorderedReceiver.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetUPnP.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\NetUtility.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\..\Assets\Libraries\Lidgren.Network\SenderChannelBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
