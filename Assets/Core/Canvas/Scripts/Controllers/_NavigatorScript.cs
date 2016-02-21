@@ -25,6 +25,9 @@ public class _NavigatorScript : MonoBehaviour
 
 	public void Initialize() 
 	{
+
+        //gameBall = this.GetComponent<GameObject>();
+
 		agent = this.GetComponent<NavMeshAgent> ();
 		animator = this.GetComponent<Animator> ();
         desiredOrientation = transform.rotation;
@@ -48,7 +51,7 @@ public class _NavigatorScript : MonoBehaviour
         {*/
             float speed = agent.desiredVelocity.magnitude;
 
-            Vector3 velocity = Quaternion.Inverse(transform.rotation) * agent.desiredVelocity;
+			Vector3 velocity = Quaternion.Inverse(transform.rotation) * agent.desiredVelocity;
 
             float angle = Mathf.Atan2(velocity.x, velocity.z) * 180.0f / 3.14159f;
 
@@ -86,8 +89,14 @@ public class _NavigatorScript : MonoBehaviour
         agent.SetDestination(gameBall.transform.position);
         if(IsInitialized == false)
         {
+
             //IsInitialized = true;
             //agent.SetDestination(new Vector3(0,0,0));
+
+            IsInitialized = true;
+
+            agent.SetDestination(new Vector3(5,0,0));
+
             if(agent.transform.position == agent.destination)
             {
                 IsInitialized = true;
