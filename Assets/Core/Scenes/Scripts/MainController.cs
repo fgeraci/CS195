@@ -4,7 +4,7 @@ using TreeSharpPlus;
 
 public class MainController : MonoBehaviour {
 
-    GameObject[] spots;
+   GameObject[] spots;
 
     // Use this for initialization
     void Start () {
@@ -19,7 +19,7 @@ public class MainController : MonoBehaviour {
         for(int i = 0; i < testAgents.Length; i++) {
             SmartObject so = testAgents[i].GetComponent<SmartObject>();
             Vector3 v = Vector3.zero;
-            if (!(so.Behavior.Status == BehaviorStatus.InEvent)) {
+            while(!(so.Behavior.Status == BehaviorStatus.InEvent)) {
                 bool found = false;
                 while (!found) {
                     int index = UnityEngine.Random.Range(0, spots.Length);

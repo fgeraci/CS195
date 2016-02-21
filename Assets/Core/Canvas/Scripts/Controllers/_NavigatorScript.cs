@@ -25,7 +25,6 @@ public class _NavigatorScript : MonoBehaviour
 
 	public void Initialize() 
 	{
-        gameBall = this.GetComponent<GameObject>();
 		agent = this.GetComponent<NavMeshAgent> ();
 		animator = this.GetComponent<Animator> ();
         desiredOrientation = transform.rotation;
@@ -33,12 +32,12 @@ public class _NavigatorScript : MonoBehaviour
         HasHandshaked = false;
 		/*put together with locomotion*/
 		locomotion = new LocomotionController(animator);
-
-	}
+        
+    }
 
     protected void SetupAgentLocomotion()
     {
-        if (AgentDone())
+        /*if (AgentDone())
         {
             //TODO Resetting path here, otherwise e.g. stepback animation not working properly - CS 03.09.2014
             //Is there a better solution?
@@ -46,15 +45,15 @@ public class _NavigatorScript : MonoBehaviour
             locomotion.Do(0, angleDiff);
         }
         else
-        {
+        {*/
             float speed = agent.desiredVelocity.magnitude;
 
-            Vector3 velocity = Quaternion.Inverse(gameBall.transform.rotation) * agent.desiredVelocity;
+            Vector3 velocity = Quaternion.Inverse(transform.rotation) * agent.desiredVelocity;
 
             float angle = Mathf.Atan2(velocity.x, velocity.z) * 180.0f / 3.14159f;
 
             locomotion.Do(speed, angle);
-        }
+        //}
     }
 
     void OnAnimatorMove()
@@ -84,10 +83,11 @@ public class _NavigatorScript : MonoBehaviour
 	void Update () 
 	{
         SetupAgentLocomotion();
+        agent.SetDestination(gameBall.transform.position);
         if(IsInitialized == false)
         {
-            IsInitialized = true;
-            agent.SetDestination(new Vector3(0,0,0));
+            //IsInitialized = true;
+            //agent.SetDestination(new Vector3(0,0,0));
             if(agent.transform.position == agent.destination)
             {
                 IsInitialized = true;
@@ -106,7 +106,7 @@ public class _NavigatorScript : MonoBehaviour
         if(true/*gameBall.isPickedUp == false*/)
         {
             ResetBools();
-            agent.SetDestination(new Vector3(10f,0f,10f)/*gameBall.transform.position*/); //Ball will be picked up once destination is reached
+            agent.SetDestination(gameBall.transform.position)/*gameBall.transform.position*/; //Ball will be picked up once destination is reached
             if(agent.transform.position == agent.destination)
             {
                 //pick up ball
@@ -116,7 +116,7 @@ public class _NavigatorScript : MonoBehaviour
         }
         if(IsHoldingBall == true)
         {
-            agent.SetDestination(new Vector3(10f, 0f, 10f)); // the goal
+            agent.SetDestination(new Vector3(-18f, 0.2f, 0f)); // the goal
             if(agent.transform.position == agent.destination)
             {
                 animator.SetBool("B_Breakdance", true);
