@@ -4,19 +4,16 @@ using System.Collections;
 
 public class Ball_Script : MonoBehaviour
 {
-
-    private Animator animator;
+    private GameObject ball;
     private Rigidbody rb;
     public float speed =5;
     public bool isPickedUp;
-
-
+    
     // Use this for initialization
     void Start()
     {
-
-        isPickedUp = false;
-        animator = this.GetComponent<Animator>();
+        ball = this.GetComponent<GameObject>();
+        isPickedUp = false;        
         rb = this.GetComponent<Rigidbody>();
     }
 
@@ -27,6 +24,7 @@ public class Ball_Script : MonoBehaviour
         {
             return;
         }
+        isPickedUp = false;
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);

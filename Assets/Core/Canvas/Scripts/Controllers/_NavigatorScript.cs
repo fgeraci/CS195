@@ -9,9 +9,11 @@ public class _NavigatorScript : MonoBehaviour
     public GameObject gameBall;
 	private float angleDiff;
     public bool IsInitialized;
+    public Transform lefthand;
     public bool HasHandshaked;
     public bool Tackle;
     public bool IsHoldingBall;
+    public Ball_Script ballscript;
 
 
     [HideInInspector]
@@ -25,9 +27,7 @@ public class _NavigatorScript : MonoBehaviour
 
 	public void Initialize() 
 	{
-
-        //gameBall = this.GetComponent<GameObject>();
-
+        ballscript = gameBall.GetComponent<Ball_Script>();
 		agent = this.GetComponent<NavMeshAgent> ();
 		animator = this.GetComponent<Animator> ();
         desiredOrientation = transform.rotation;
@@ -86,40 +86,34 @@ public class _NavigatorScript : MonoBehaviour
 	void Update () 
 	{
         SetupAgentLocomotion();
-        agent.SetDestination(gameBall.transform.position);
+        
         if(IsInitialized == false)
-        {
-
-            //IsInitialized = true;
-            //agent.SetDestination(new Vector3(0,0,0));
-
-            IsInitialized = true;
-
-            agent.SetDestination(new Vector3(5,0,0));
-
+        { 
+            agent.SetDestination(new Vector3(0,0,0)); // walk to center to handshake
             if(agent.transform.position == agent.destination)
             {
                 IsInitialized = true;
             }
-            return;
+            else
+            {
+                return;
+            }
         }
         if(HasHandshaked == false)
         {
-            if(true)
-            {
                 //code here for affordance
-                HasHandshaked = true;
-            }
-            return;          
+                HasHandshaked = true;       
         }        
-        if(true/*gameBall.isPickedUp == false*/)
+        if(ballscript.isPickedUp == false)
         {
             ResetBools();
-            agent.SetDestination(gameBall.transform.position)/*gameBall.transform.position*/; //Ball will be picked up once destination is reached
+            agent.SetDestination(gameBall.transform.position);
             if(agent.transform.position == agent.destination)
             {
-                //pick up ball
-                /*gameBall.isPickedUp = true*/
+                animator.SetTrigger("B_PickupLeft");
+                ballscript.isPickedUp = true;
+                gameBall.transform.parent = lefthand;
+                IsHoldingBall = true;
             }
             return;
         }
