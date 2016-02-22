@@ -92,6 +92,7 @@ public class _NavigatorScript : MonoBehaviour
             agent.SetDestination(new Vector3(0,0,0)); // walk to center to handshake
             if(agent.transform.position == agent.destination)
             {
+				//wait for second guy to come here
                 IsInitialized = true;
             }
             else
@@ -108,7 +109,8 @@ public class _NavigatorScript : MonoBehaviour
         {
             ResetBools();
             agent.SetDestination(gameBall.transform.position);
-            if(agent.transform.position == agent.destination)
+			Vector3 distance = agent.transform.position - agent.destination;
+			if(distance.magnitude<1)
             {
                 animator.SetTrigger("B_PickupLeft");
                 gameBall.GetComponent<Rigidbody>().isKinematic = true;            
@@ -137,12 +139,18 @@ public class _NavigatorScript : MonoBehaviour
                 //cry
                 //end game
             }
-            Tackle = true;
-            if(agent.transform.position == agent.destination)
+            //Tackle = true;
+			agent.SetDestination(gameBall.transform.position);
+			Vector3 threshold = agent.transform.position - gameBall.transform.position;
+			if(threshold.magnitude<1)
             {
                 //tackle
-                /*gameBall.isPickedUp = false*/
-                gameBall.GetComponent<Rigidbody>().isKinematic = false;
+				animator.SetTrigger("H_Tackle");
+				Debug.Log ("Tackle!");
+				gameBall.GetComponent<Rigidbody>().isKinematic = false;
+				gameBall.transform.parent = null;
+				ballscript.isPickedUp = false;
+                
                 return;
             }
         }        
