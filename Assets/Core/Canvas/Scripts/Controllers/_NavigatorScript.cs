@@ -110,10 +110,10 @@ public class _NavigatorScript : MonoBehaviour
             agent.SetDestination(gameBall.transform.position);
             if(agent.transform.position == agent.destination)
             {
-                animator.SetTrigger("B_PickupLeft");
+                animator.SetTrigger("B_PickupLeft");                
                 ballscript.isPickedUp = true;
                 gameBall.transform.parent = lefthand;
-                gameBall.transform.localPosition = Vector3.zero;
+                gameBall.transform.position = lefthand.position;
                 IsHoldingBall = true;
             }
             return;
@@ -152,5 +152,4 @@ public class _NavigatorScript : MonoBehaviour
         agent.speed = 2.2f;
         return;
     }
-	
 }
