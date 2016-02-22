@@ -113,6 +113,7 @@ public class _NavigatorScript : MonoBehaviour
                 animator.SetTrigger("B_PickupLeft");
                 ballscript.isPickedUp = true;
                 gameBall.transform.parent = lefthand;
+                gameBall.transform.localPosition = Vector3.zero;
                 IsHoldingBall = true;
             }
             return;
