@@ -110,7 +110,8 @@ public class _NavigatorScript : MonoBehaviour
             agent.SetDestination(gameBall.transform.position);
             if(agent.transform.position == agent.destination)
             {
-                animator.SetTrigger("B_PickupLeft");                
+                animator.SetTrigger("B_PickupLeft");
+                gameBall.GetComponent<Rigidbody>().isKinematic = true;            
                 ballscript.isPickedUp = true;
                 gameBall.transform.parent = lefthand;
                 gameBall.transform.position = lefthand.position;
@@ -120,7 +121,7 @@ public class _NavigatorScript : MonoBehaviour
         }
         if(IsHoldingBall == true)
         {
-            agent.SetDestination(new Vector3(-18f, 0.2f, 0f)); // the goal
+            agent.SetDestination(new Vector3(-18f, 0.2f, agent.transform.position.z)); // the goal
             if(agent.transform.position == agent.destination)
             {
                 animator.SetBool("B_Breakdance", true);
@@ -141,6 +142,7 @@ public class _NavigatorScript : MonoBehaviour
             {
                 //tackle
                 /*gameBall.isPickedUp = false*/
+                gameBall.GetComponent<Rigidbody>().isKinematic = false;
                 return;
             }
         }        
