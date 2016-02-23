@@ -6,14 +6,20 @@ public class _NavigatorScript : MonoBehaviour
 {	
 	private NavMeshAgent agent;
 	private Animator animator;
+    public Transform otherPlayer;
     public GameObject gameBall;
-	private float angleDiff;
-    public bool IsInitialized;
     public Transform lefthand;
-    public bool HasHandshaked;
+    private float angleDiff;
+
+    private Vector3 start;
+    public bool IsInitialized;
+    public bool HasShakenHands;
+    public bool ReadyToPlay;
     public bool Tackle;
     public bool IsHoldingBall;
+
     public Ball_Script ballscript;
+
     public enum TEAM { RED = 0, BLUE = 1 };
     public TEAM team;
     public Material redTeam;
@@ -35,10 +41,12 @@ public class _NavigatorScript : MonoBehaviour
 		agent = this.GetComponent<NavMeshAgent> ();
 		animator = this.GetComponent<Animator> ();
         desiredOrientation = transform.rotation;
+        start = transform.position;
         IsInitialized = false;
-        HasHandshaked = false;
-		/*put together with locomotion*/
-		locomotion = new LocomotionController(animator);
+        HasShakenHands = false;
+        ReadyToPlay = false;
+        /*put together with locomotion*/
+        locomotion = new LocomotionController(animator);
         ColorByTeam();
     }
 
@@ -111,24 +119,50 @@ public class _NavigatorScript : MonoBehaviour
 	{
         SetupAgentLocomotion();
         
-        if(IsInitialized == false)
+        if(!IsInitialized)
         { 
-            agent.SetDestination(new Vector3(0,0,0)); // walk to center to handshake
-            if(agent.transform.position == agent.destination)
+            if (transform.position.magnitude>0.6)
             {
-				//wait for second guy to come here
+                agent.SetDestination(Vector3.zero); // walk to center to handshake
+            } else
+            {
+                agent.SetDestination(transform.position); // stop playing chicken with other player
+            }
+            if (!HasShakenHands)
+            {
+                if (animator.GetBool("HandshakeDone")) // set in OnStateExit
+                {
+                    HasShakenHands = true;
+                    return;
+                }
+                if ((otherPlayer.position-transform.position).magnitude<1.2)
+                {
+                    agent.SetDestination(transform.position); // hold still so you can handshake
+                    animator.SetTrigger("H_Handshake");
+                }
+                else
+                {
+                    return; // wait for second player to come
+                }
+            }
+            if (HasShakenHands && !ReadyToPlay)
+            {
+                if ((transform.position - start).magnitude < 0.5)
+                {
+                    ReadyToPlay = true;
+                }
+                else
+                {
+                    agent.SetDestination(start);
+                    return;
+                }
+            }
+            if (ReadyToPlay)
+            {
                 IsInitialized = true;
             }
-            else
-            {
-                return;
-            }
+            return;
         }
-        if(HasHandshaked == false)
-        {
-                //code here for affordance
-                HasHandshaked = true;       
-        }        
         if(ballscript.isPickedUp == false)
         {
             ResetBools();
