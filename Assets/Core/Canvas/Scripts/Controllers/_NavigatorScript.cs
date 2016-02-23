@@ -14,6 +14,10 @@ public class _NavigatorScript : MonoBehaviour
     public bool Tackle;
     public bool IsHoldingBall;
     public Ball_Script ballscript;
+    public enum TEAM { RED = 0, BLUE = 1 };
+    public TEAM team;
+    public Material redTeam;
+    public Material blueTeam;
 
 
     [HideInInspector]
@@ -35,7 +39,27 @@ public class _NavigatorScript : MonoBehaviour
         HasHandshaked = false;
 		/*put together with locomotion*/
 		locomotion = new LocomotionController(animator);
-        
+        ColorByTeam();
+    }
+
+    private void ColorByTeam()
+    {
+        for (int i = 0; i<gameObject.transform.GetChildCount(); i++)
+        {
+            Transform child = gameObject.transform.GetChild(i);
+            if (child.name.Equals("Tops") || child.name.Equals("Bottoms"))
+            {
+                switch (team)
+                {
+                    case TEAM.RED:
+                        child.GetComponent<Renderer>().material = redTeam;
+                        break;
+                    case TEAM.BLUE:
+                        child.GetComponent<Renderer>().material = blueTeam;
+                        break;
+                }
+            }
+        }
     }
 
     protected void SetupAgentLocomotion()
