@@ -16,6 +16,7 @@ public class _NavigatorScript : MonoBehaviour
     public bool HasShakenHands;
     public bool ReadyToPlay;
     public bool Tackle;
+    public bool IsPickingBallUp;
     public bool IsHoldingBall;
 
     public Ball_Script ballscript;
@@ -128,26 +129,27 @@ public class _NavigatorScript : MonoBehaviour
             {
                 agent.SetDestination(transform.position); // stop playing chicken with other player
             }
-            if (!HasShakenHands)
+            if (!ReadyToPlay && !HasShakenHands)
             {
-                if (animator.GetBool("HandshakeDone")) // set in OnStateExit
+                if (animator.GetBool("HandshakeDone")) // set true in OnStateExit
                 {
                     HasShakenHands = true;
                     return;
                 }
-                if ((otherPlayer.position-transform.position).magnitude<1.2)
+                else if ((otherPlayer.position-transform.position).magnitude<1.2)
                 {
                     agent.SetDestination(transform.position); // hold still so you can handshake
                     animator.SetTrigger("H_Handshake");
+                    return;
                 }
                 else
                 {
                     return; // wait for second player to come
                 }
             }
-            if (HasShakenHands && !ReadyToPlay)
+            if (!ReadyToPlay && HasShakenHands)
             {
-                if ((transform.position - start).magnitude < 0.5)
+                if ((transform.position - start).magnitude<0.5 && otherPlayer.position.magnitude>2.9)
                 {
                     ReadyToPlay = true;
                 }
@@ -163,23 +165,33 @@ public class _NavigatorScript : MonoBehaviour
             }
             return;
         }
-        if(ballscript.isPickedUp == false)
+        if(ballscript.isPickedUp == false && !IsPickingBallUp)
         {
             ResetBools();
             agent.SetDestination(gameBall.transform.position);
 			Vector3 distance = agent.transform.position - agent.destination;
 			if(distance.magnitude<1)
             {
+                agent.SetDestination(transform.position); // ball already within reach; stop moving
                 animator.SetTrigger("B_PickupLeft");
-                gameBall.GetComponent<Rigidbody>().isKinematic = true;            
+                gameBall.GetComponent<Rigidbody>().isKinematic = true;
                 ballscript.isPickedUp = true;
+                IsPickingBallUp = true;
+                return;
+            }
+        }
+        if (IsPickingBallUp)
+        {
+            if (animator.GetBool("PickupDone"))
+            {
                 gameBall.transform.parent = lefthand;
                 gameBall.transform.position = lefthand.position;
                 IsHoldingBall = true;
+                IsPickingBallUp = false;
             }
             return;
         }
-        if(IsHoldingBall == true)
+        if (IsHoldingBall == true)
         {
             agent.SetDestination(new Vector3(-18f, 0.2f, agent.transform.position.z)); // the goal
             if(agent.transform.position == agent.destination)
@@ -205,9 +217,9 @@ public class _NavigatorScript : MonoBehaviour
                 //tackle
 				animator.SetTrigger("H_Tackle");
 				Debug.Log ("Tackle!");
-				gameBall.GetComponent<Rigidbody>().isKinematic = false;
-				gameBall.transform.parent = null;
-				ballscript.isPickedUp = false;
+				// gameBall.GetComponent<Rigidbody>().isKinematic = false;
+				//gameBall.transform.parent = null;
+				//ballscript.isPickedUp = false;
                 
                 return;
             }
@@ -215,6 +227,7 @@ public class _NavigatorScript : MonoBehaviour
 	}
     void ResetBools()
     {
+        IsPickingBallUp = false;
         IsHoldingBall = false;
         Tackle = false;
         agent.speed = 2.2f;
