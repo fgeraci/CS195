@@ -1,3 +1,5 @@
+Please, do not push assets, only code, controllers, scenes, terrains etc.
+
 README
 
 First of all, we provide a build of the main bank scene for both Windows and Mac. This build is fully
